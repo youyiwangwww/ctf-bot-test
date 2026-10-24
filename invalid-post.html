@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Invalid POST Control</title>
+</head>
+<body>
+  <h1>Invalid POST Test</h1>
+
+  <form id="probe"
+        method="POST"
+        action="http://web:3000/api/snapshot"
+        enctype="text/plain"
+        target="_self">
+    <input type="hidden" name="invalid-json" value="test">
+  </form>
+
+  <script>
+    const img = new Image();
+    img.src =
+      "https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713"
+      + "?event=invalid-post-start";
+
+    setTimeout(() => {
+      document.getElementById("probe").submit();
+    }, 800);
+  </script>
+</body>
+</html>
