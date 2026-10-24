@@ -1,13 +1,19 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Navigation Control</title>
 </head>
 <body>
   <h1>Navigation Control Test</h1>
+
   <script>
+    const marker = new Image();
+    marker.src =
+      "https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713"
+      + "?event=navigation-start";
+
     setTimeout(() => {
       window.location.href = "http://web:3000/";
     }, 800);
