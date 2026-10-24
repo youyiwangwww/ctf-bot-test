@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site Preview Snapshot Redirect Test — Destination</title>
+</head>
+<body>
+  <h1>Redirect destination loaded</h1>
+  <p>Controlled GitHub Pages destination.</p>
+  <script>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const tag = params.get('tag') || 'missing-tag';
+      const nav = performance.getEntriesByType('navigation')[0];
+      const query = new URLSearchParams({
+        event: 'redirect-destination',
+        tag,
+        protocol: location.protocol,
+        navRedirectCount: String(nav?.redirectCount ?? 'unavailable')
+      });
+      const marker = new Image();
+      marker.src = 'https://webhook.site/0a945959-6737-49f0-aeed-accf4d0b8713?' + query.toString();
+    })();
+  </script>
+</body>
+</html>
